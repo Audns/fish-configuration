@@ -28,15 +28,6 @@ alias lla='eza --color=always --icons=always -al'
 alias pcp='proxychains4 -q'
 alias ip='ip -c'
 
-# fz finder for dir
-function fz -d "Change directory using zoxide and fzf"
-    set -l dir (zoxide query --list | fzf --height 40% --layout reverse --border --query (commandline))
-    if test -n "$dir"
-        cd $dir
-    end
-    commandline -f repaint
-end
-
 # Auto-launch tmux if not already in a tmux session and in an interactive terminal
 if command -q tmux
     and status is-interactive
